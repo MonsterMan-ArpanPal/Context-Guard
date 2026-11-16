@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 text-zinc-300 antialiased;
+    background-image:
+      radial-gradient(70rem 40rem at 50% -20%, rgba(52, 211, 153, 0.05), transparent 70%),
+      radial-gradient(50rem 30rem at 100% 0%, rgba(96, 165, 250, 0.035), transparent 65%);
+    background-attachment: fixed;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    @apply bg-brand-400/25 text-white;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  /* Flat surfaces: subtle border, faint fill, no blur. */
+  .card {
+    @apply rounded-xl border border-white/[0.07] bg-ink-900/80 shadow-card;
+  }
+
+  .card-quiet {
+    @apply rounded-lg border border-white/[0.06] bg-white/[0.015];
+  }
+
+  .eyebrow {
+    @apply font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500;
+  }
+
+  .hairline {
+    @apply border-t border-white/[0.06];
+  }
+
+  /* Kept for older views that still reference it. */
+  .glass {
+    @apply rounded-xl border border-white/[0.07] bg-ink-900/80 shadow-card;
+  }
+
+  .glass-soft {
+    @apply rounded-lg border border-white/[0.06] bg-white/[0.02];
+  }
+
+  .strike-line {
+    @apply pointer-events-none absolute left-0 top-1/2 h-px w-full bg-danger-400/70;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
